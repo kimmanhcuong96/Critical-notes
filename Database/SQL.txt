@@ -1,0 +1,128 @@
+----
+@author: Kim Manh Cuong
+----
+
+@SQL
+/? Prequisite: SQL is non-sensitive languge, string is bounded by ' ' or " "
+
+syntax of basic instruction
+
+#Create database
+	CREATE DATABASE	nameOfDatabase;
+	
+#Create table
+		CREATE TABLE nameOfTable(
+			colum_name1 data_type(size),
+			colum_name2 data_type(size),
+			.....................
+			colum_nameN data_type(size)
+		);
+	#Example
+		CREATE TABLE school(
+			room text(5),
+			yard text(10),
+			gate int(2)
+		);
+		
+#Insert data into table
+	INSERT INTO table_name VALUES(value1, value2, value3); #fill value full colums.
+<<or>>
+	INSERT INTO table_name (colum_name1, colum_name2, colum_name3)
+	VALUES(value1, value2, value3); #number of colum_name equals number of value corresponding.
+	
+#Select data (truy xuất dữ liệu)
+	SELECT * FROM table_name; #select all data
+	SELECT colum_name1, colum_name2, colum_nameN FROM table_name;  #select al data of colum_name corresponding
+	
+#Select data base on condition (theo điều kiện)
+	SELECT * FROM table_name WHERE colum_name operator value_column;
+<<or>>
+	SELECT colum_name1, colum_name2,colum_nameN FROM table_name WHERE colum_name operator value_column;
+	#select all data from table_name base on condition " colum_name operator value_column"
+	#operator is likes: = <> != > < >= <= BETWEEN LIKE IN 
+	#example
+		SELECT * FROM school WHERE room = "204GD2";
+		
+	#BASE ON MANY CONDITIONS: use AND and OR
+		#example
+			SELECT * FROM table_name WHERE condition1 AND condition2 AND condition3;
+			SELECT * FROM table_name WHERE condition1 OR condition2 OR condition3;
+			
+#Select data with sorted value (lấy kết quả theo thứ tự trong sql
+	SELECT * FROM table_name ORDER BY colum_name ASC <<or DESC>> #default is ASC
+	#select data base on sorting following colum_name increasing or decreasing
+	
+#Select data which is different in one column or multi-columns
+	SELECT DISTINCT colum_name1, colum_name2, colum_nameN FROM table_name; 
+	#lấy ra các hàng có giá trị khác nhau trong 1 cột, hoặc nhiều cột thì xét giá tổ hợp khác nhau.
+	
+#Select a limited data number: return a specific quantity data
+	SELECT * FROM table_name LIMIT num_ber;
+	#num_ber: số lượng kết quả muốn trả về
+
+#Select data which satisfy one of many condition
+	SELECT * FROM table_name WHERE colum_name (NOT) IN (value1, value2, valueN);
+	#example: SELECT * FROM sinh_vien WHERE Age In (19, 22, 35); #trả về tất cả các sinh viên thuộc nhóm tuổi trên
+	#example2: SELECT * FROM sinh_vien WHERE Age NOT IN (19, 20) # Trả về tất cả các sinh viên không có tuổi là 19 hoặc 20
+
+#SELECT data in a range of value
+	SELECT * FROM table_name WHERE colum_name (NOT) BETWEEN value1 AND value2;
+	#note: value1 always < value2
+	#example: SELECT * FROM sinh_vien WHERE Age BETWEEN 19 AND 22; # lấy trong khoảng 19-22
+	#example2: SELECT * FROM sinh_vien WHERE Age NOT BETWEEN 199 AND 22 #lấy ngoài khoảng 19-22
+
+#Select data base on string
+	SELECT * FROM table_name WHERE colum_name LIKE string;
+	#example: SELECT * FROM sinh_vien WHERE Full_name LIKE "Kim Manh Cuong";
+	#note: 
+		.% =  một hoặc nhiều ký tự :%cuong% -> miễn là có chữ cường
+		._ = một ký tự; _c___ -> chữ c phải đứng ở vị trí thứ 2
+
+#Delete data in table
+	DELETE FROM table_name WHERE colum_name =  value;
+	#example: DELETE FROM sinh_vien WHERE Gender = "Nam"; #Xóa các records có giới tính Nam
+	#Nếu bỏ mệnh đề WHERE thì tất cả dữ liệu sẽ bị xóa
+	
+#Update data in table
+	UPDATE table_name SET colum_name1 = value1, colum_name2 = value2, colum_nameN = valueN
+	WHERE colum_name = value;
+	#This mean: cập nhật các colum_name với giá trị tương ứng khi colum_name có giá trị là value
+	#example: UPDATE sinh_vien SET City = "Hau Giang" WHERE Gender = "Nam"; #đặt thành phố là hậu giang
+	#khi mà giới tính là nam
+	#Nếu bỏ qua mệnh đề WHERE thì toàn bộ các hàng trong bảng đều được cập nhật
+	
+#Rename table and column
+	SELECT colum_name AS new_column_name FROM table_name; # Đặt lại tên cột
+	SELECT * FROM table_name AS new_table_name; #đặt lại tên bảng
+	
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	

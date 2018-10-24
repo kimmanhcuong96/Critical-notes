@@ -1,0 +1,12 @@
+----
+@author: Kim Manh Cuong
+----
+
+SVN: subversion
+
+client: TortoiseSVN <<rùa>>
+Server: VisualSVN 
+
+http://expressmagazine.net/sites/default/files/fileAttach/huong_dan_su_dung_subversion.pdf
+https://tortoisesvn.net/docs/nightly/TortoiseSVN_vi/tsvn-dug-wcstatus.html#tsvn-dug-wcstatus-1
+

@@ -1,0 +1,80 @@
+@Software testing
+
+-- Introduction to testing software  testing life cycle
+* Task of sw Engineer:
+	Requirement Analysis -> design -> implement <<code>> -> testing
+	
+	TSDV effort Ratio for testing:
+	RA <<7%>> -> Design <<18%>> -> coding <<43%>> -> testing <<32%>>
+	
+* Model testing:
+- waterfall model: 
+	Customer -- <<sent request>>--->
+					Requirement analysis --<<Software specification>>-->
+								Software design --<<design document>>----->
+										Coding --<<Source code>> ------------>
+												testing.
+- Testing in V-shape model:
+
+RA							     	<<System test plan>>	<---------->	<<System test specification>>	SW	system test
+
+Software architecture design		<<Integration test plan>>	<--------->	<<Integration test plan>>		SW Integration test
+
+SW detailed design					<<Unit test plan>>		<----------->	<<Unit test plan>>				SW Unit test
+
+
+																Coding
+																
+* Black box testing
+    Testing base on specification and requirement.
+		. Use in almost of test pharse
+    - Black box test method:
+		. Equivalent class testing * <<phân lớp tương đương>>
+		. Boundary value testing * << giá trị biên>>
+		. Decision table testing * << bảng quyết định>>
+		. State-transition testing << trạng thái chuyển đổi>>
+		. Error guessing <<dự đoán lỗi>>
+.? "*" các method chủ yếu.
+
+	- Ưu nhược điểm của các method:
+		. Equivalent class testing: + Giảm số lượng testcase
+									- Việc chia phân lớp tương đương phụ thuộc kinh nghiệm người test
+									- Không xem xét biên
+        . Boundary value testing (bổ sung cho equivalent): Lựa chọn testcase ở biên của lớp	
+									+ Dễ hiểu và dễ điều khiển
+									- Phức tạp khi biến không độc lập
+.? 1 testcase chỉ nên đưa ra một điều kiện sai.
+
+						
+* White box testing
+	Testing base on structure, function: internal paths, structure and implementation.
+	
+	Mức đột test white box: unit test > integration test > system test
+	
+	White box test technique: - control flow (focus) and data flow.
+	
+	- Control flow testing: 
+		.Approach: Xác định excution paths sau đó tạo và thực thi testcase có thể cover hết các paths.
+		
+		.coverage = ( Number of coverage item exercised)/(total number of coverage items)
+		
+		.Statement coverage: Đi qua hết các statement ít nhất một lần.
+		.Branch coverage: Đi qua hết các nhánh ít nhất một lần.
+		.Path coverage : Tổ hợp các đường đi.
+	
+	- Test Harness:
+		.Stub: hàm giả để test cho unit test
+		.Driver: Gọi và đưa các tham số và nhận kết quả trả lại
+		.call-> & Acknowledge <- : đưa ra thông số giả định để test Unit under test.
+		
+		Model:
+								-----<<call/pass parameter>>--->				<--<<Acknowledge>>-------
+						Driver									Unit under test							Stub	
+								<----<<results>>---------------					----<<call>------------>
+								
+* Test design process:
+		Modeling item tobe tested -> Creating base testcases -> Adding test data -> writing test specification
+
+-- Testcase format:
+	<<TestID>>	<<Input>>	<<Precondition>>	<<Procedure>> 	<<Expected value>>
+	    

@@ -1,0 +1,9 @@
+##build jar file or war file
+## GUI
+-> window->show view ->other ->Gradle tasks-> chon project-> boot jar/bootwar
+
+
+####General:
+$ gradle tasks
+$ gradle build
+$ gradle run

@@ -1,0 +1,3 @@
+- 400 bad request: -->>> focus ajax: must write normal case: type Not TYPE
+	With type: get if write TYPE: get is not proble due to GET is default when can not detect type.
+	true: type: "GET" or type : "POST"

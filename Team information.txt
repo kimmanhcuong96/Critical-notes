@@ -1,0 +1,9 @@
+----
+@author: Kim Manh Cuong
+----
+
+@TDSL: toshiba digital solution
+
+Group leader: A.Ân
+Team leader: A.Thắng
+members: A.Thiện, A.Ngọc, Cường

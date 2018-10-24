@@ -1,0 +1,22 @@
+@Exception ------~~~~~~~
+Java: 
++ checked Exception
++ Unchecked Exception
++ Error
+
+- Checked Exception: Bị phát hiện bởi compiler
+- Unchecked Exception: Bị phát hiện bởi Runtime (Runtime Exception)
+- Error: Exception không thể khắc phục
+
+Phân lớp Exception
+				
+				Throwable
+				     |
+		   ----------|------------
+		   |					  |
+		   Error				Exception
+			|					   |
+	Unchecked Error	--------------------------------
+						|								|
+					Unchecked Exception			Checked Exception
+

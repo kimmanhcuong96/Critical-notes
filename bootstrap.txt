@@ -1,0 +1,12 @@
+@bootstrap
+ - bootstrap  được chia màn hình thành 12 khung theo chiều dọc
+ - Có thể định nghĩa màn hình chồng nhau để thiết bị sử dụng tương ứng
+ - Có các glyphicon (có bản quyền) sẵn: http://glyphicons.com/.
+ - Có tập các badge, label
+ Dropdown: để mở danh sách
+ collapse: để đóng mở (ẩn hiện) 1 phần nội dung
+ pagination: chia page
+ panel: tạo panel
+ menu
+ navbar: thanh điều hướng
+ Carousel: duyệt phần tử

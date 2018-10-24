@@ -1,0 +1,6 @@
+#@Coding style and skill:
+## Some convention about transfer data:
+	1. Flow: Should use DTO object to receiver and send data: 
+		- with database: Database->model->service->DTO
+		- with api: api -> api client -> DTO -> service -> controller
+		- with client: client -> controller -> DTO -> service -> model || api client

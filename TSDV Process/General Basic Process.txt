@@ -1,0 +1,13 @@
+----
+@author: Kim Manh Cuong
+----
+
+1. Redmine: shrek.tsdv.com.vn -> redmine
+	Choose project in lastest project
+	Example: Recaius Ph3
+	- Tab: New issue : create new task
+				- Activity field: implementation (normal)
+		   Gantt: View all task
+				- Organization: List tasks, check task, ...
+		
+2. EGroupware: check booked room, create new books.

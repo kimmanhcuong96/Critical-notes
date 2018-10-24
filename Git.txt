@@ -1,0 +1,30 @@
+##Github
+
+------------------------------------------------------
+
+##Initial git 
+	git init
+#Add file to tracking
+	git add <file name>
+#Commit files are added	
+	git commit -m "message"
+#Add a repo
+	git remote add origin https://github.com/kimmanhcuong96/example-JPA.git
+
+#Push to repo
+	git push -u origin master
+	
+-------------------------------
+git add <file name>
+git commit -m "message"
+git push origin <branch name>
+
+-------------------------------
+#revert file
+	git checkout -- HomePage/HomePage/src/main/java/com/soc/dao/ContentDAO.java
+#check out source:
+	git pull
+#check status
+	git status
+####config proxy
+ git config --global http.proxy http://cuongkm:Phamgiang97@proxy.tsdv.com.vn:3128

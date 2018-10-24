@@ -1,0 +1,10 @@
+@Angular: focus for Single Page Application (SPA)
+3 thành phần chính:
+	* ng-app: chỉ thị một kết nối ứng dụng AngularJS tới HTML
+	* ng-model: chỉ thị này liên kết với dữ liệu của ứng dụng Angular
+	* ng-bind: chỉ thì này dùng đưa dữ liệu vào HTML tags
+	
+- ng-app: khai báo bắt đầu chương trình Angular
+- ng-controller: khai báo controller với tên xác định: vd: ng-controller="mycontroller"
+- angular.module("myapp",[]) là bắt đầu viết code cho ứng dụng có tên "myapp"
+- $scope là bắt buộc(không thể đổi thành tên khác): là thành phần troa đổi thông tin giữa controller với view

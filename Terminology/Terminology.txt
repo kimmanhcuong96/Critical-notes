@@ -1,0 +1,46 @@
+----
+@author: Kim Manh Cuong
+----
+
+MVC: Model view controller
+JVM Java virtual machine
+EE: interprise Edition
+
+SRS: Software requirement specification
+SW design =  a process of problem solving and planing for a software solution.
+
+POM: Project Object Model
+DSL: Domain Specific Language
+
+Gradle: công cụ build <<có khả năng quản lý thư viện>>
+RESTfulAPI: ?
+
+REST: Representational State Transfer
+API: Application Programming Interface
+	.Phần mềm trung gian giữa client và Server. Giao thức chính thường sử dụng là HTTP
+
+JSON: Javascript Object Notation //1 type of data
+
+JPA: Java Persistence <<bền bỉ, lâu dài>> API <<is a framework>>
+persist: thường để chỉ lưu một đối tượng
+marge: thường để chỉ cập nhật một đối tượng
+ORM: Object Relational Mapping <<framework>>
+
+URI: Uniform Resource Identifier <<Định dạng tài nguyên thống nhất>>
+		.Chỉ đích danh 1 loại tài nguyên hoặc đường dẫn tới nó.
+		
+URL: Uniform Resource Locator. Là 1 dạng của URI. Chỉ chính giao thức hay cách
+để lấy được tài nguyên
+URN: Uniform Resource Name. Là 1 dạng của URI. KHÔNG chỉ ra cách sử dụng giao thức
+hay cách để lấy tài nguyên. URN cung cấp định danh của tài nguyên.
+
+SQL: Structured Query Language
+
+Bootstrap: là 1 framework cho phép thiết kế website responsive nhanh hơn
+	including: HTML templates, CSS templates, javascript templates
+	
+@: annotation <<chú thích>> trong java spring
+
+JSP: JavaServer Pages
+Servlets: như là một tầng trung gian giữa một Yêu cầu từ một trình duyệt web 
+hoặc HTTP client với các Database hoặc các ứng dụng trên HTTP server

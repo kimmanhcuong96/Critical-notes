@@ -1,0 +1,51 @@
+@Kim Manh Cuong##
+#################
+
+
+###File application.java-------------------------------------------------------------------------------
+	@SpringBootApplication(scanBasePackages= {"com.soc.***"}) is the same with @ComponentScan(basePackages="com.soc.***")
+	@EnableJpaRepositories(basePackages="com.soc.***") set directory search for Repository or DAO
+	@EntityScan("com.soc.***") set directory search for Modal
+	
+###Anotation for partition class to create bean: riquired
+	Service: @Service or @Component
+	General class: @Component
+	Repository/DAO: @Repository
+	Model: @Entity
+	
+###JPA query
+	## With parameter: 
+		
+		---->method 1: truyen theo thu tu / pass by order #1 la vi tri cua name, 2 la vi tri cua address
+		@Query("SELECT e FROM Customer e WHERE e.name = ?1 AND e.address = ?2")
+		List<Customer> findByNameAndAddress(String name, String address);
+		
+		---->method 2: su dung annotation @Para/ pass by annotation @Para
+		@Query("SELECT e FROM Customer e WHERE e.name = :name AND e.address = :address")
+		List<Customer> findByNameAndAddress(@Param("name") String name, @Param("address") String address);
+			#:address is address as argument, :name is name argument.
+			
+### JPA entity
+	##Many to many
+	In class: Role Table
+		@ManyToMany
+		@JoinTable(name = "user_role_table",
+			joinColumns = @JoinColumn(name = "role_id"),
+			inverseJoinColumns = @JoinColumn(name = "user_id"))
+			//  @JsonIgnore     #use JsonIgnore to avoid unlimited itenating // tranh lap vo han
+			private List<UserTable> users;
+			
+	In class: User table
+		@ManyToMany(mappedBy = "users")
+		// @JsonIgnore #is the same above but just use only one not both
+		private List<RoleTable> roles;
+		
+	##note: if you don't use JsonIgnore, use this method to handle unlimited itenating:
+	In class: Controller (before encoding json)
+		 List<UserTable> users = postService.testFunction();
+		for(UserTable user : users) {
+			for(RoleTable role: user.getRoles()) {
+				role.setUsers(null);
+			}
+		}
+	--->> we set null for sub-user which is contained by role.

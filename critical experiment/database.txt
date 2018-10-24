@@ -1,0 +1,29 @@
+@database
+#################################
+
+I. Copymanager
+java.lang.Object
+org.postgresql.copy.CopyManager
+
+API for PostgreSQL COPY bulk data transfer
+
+public long copyIn(String sql,
+                   Reader from)
+            throws SQLException,
+                   IOException
+Use COPY FROM STDIN for very fast copying from a Reader into a database table.
+example:  copy.copyIn("COPY " + table + "(" + header + ") FROM STDOUT WITH NULL '\\N'", in);
+          hoặc copy.copyIn("COPY " + CONTENT_TABLE_NAME + " FROM STDIN WITH CSV "
+					+ "DELIMITER ',' QUOTE '\"'", fis);
+					
+###search elements which are contained in a text
+	select * from  tags_table where '1234'  LIKE '%' ||tags_table.id|| '%'; #find in tags_table whichs like 1, 12, 23, 123...
+
+###Multi-query 
+	SELECT *
+FROM (
+   SELECT *,
+          row_number() over (partition by key_id order by value desc) as row_number
+   FROM tags_table  
+) t
+WHERE row_number <= 3; # select 3 records which sort by value and group by key_id.

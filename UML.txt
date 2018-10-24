@@ -1,0 +1,55 @@
+----
+@author: Kim Manh Cuong
+----
+
+UML
+file type format: B50_M3_KimManhCuong.zip
+
+--Main element:
+- Usecase diagram: Các đối tượng bên ngoài <<action - tác nhân>> và sự kết nối tới các trường hợp sử dụng hệ thống cung cấp
+- Claas diagram: Các cấu trúc lớp tĩnh trong hệ thống
+- State machine: Chỉ ra các trạng thái  trong life-cycle và các sự kiện gây ra sự chuyển trạng thái 
+- Activity diagram: Chuỗi các sequential flow của tác nhân << action >> / thứ tự thực hiện usecase.
+- Interaction diagram: Chỉ ra tương tác giữa các đối tượng trong suốt quá trình software thực thi/ truyền thông điệp.
+- Deployment diagram: chỉ ra kiến trúc vật lý của hardware và software trong hệ thống.
+
+--  Các yếu tố mô hình chung trong UML:
+- Class: attributes and operations
+- Objaect: attributes and operations << instance >>
+- Usecase
+- Node
+- State/activity
+- package
+- comment
+
+* Class diagram:
+Association: link
+Aggregation: is a part of << share aggregation >>
+Composition: share life-time << non-share aggregation>>
+Generalization: is a kind of <<inherit>> 
+ + Implement to code:
+	. Association: independent initialization;
+	. Aggregation: initialize in another contructor methode
+	. Composition:  = Aggregation + final: example: private final Engine engine;
+	
+A->B is a kind of association: when A use B or A is less instance than B. Example: Bookshelf instance < books instance.
+
+* Usecase diagram: 
+	- Actor is also inheritted. example: Customer and bank officer inherit from user;
+		. Actor con được kế thừa cha -> không cần vẽ lại các liên kết của actor cha.
+		. Actor	-> usecase -> actor2: Mũi tên thể hiện đối tượng bắt đầu.
+		. khi dùn - <<không có mũi tên>>: Don't care who object starts.
+		
+* Include and Extend:
+	- Include: Luồng tách ra là thuộc luồng chính.
+	- Extend: Luồng tách ra là thuộc luồng phụ, ngoại lệ, luồng phát sinh.
+	.? Chú ý: mũi tên trong extend ngược với phần còn lại.
+	Example:
+		Gửi tiền mặt ----<<include>>----> Nhận dạng tiền.
+		Đặt hàng <---<<extend>>------ Đặt hàng nhanh	(Đặt hàng nhanh thuộc luồng ngoại lệ)
+		
+		
+	
+	
+
+

@@ -1,0 +1,12 @@
+@Gradle: là chương trình đóng gói
+
+-----------------------------------------
+#some of basic instructions inside "dêpndencies"
+
+- compile('org.springframework.boot:spring-boot-devtools') #tu dong reload when change feature
+compile('org.springframework.boot:spring-boot-starter-thymeleaf') #automatic add "thymeleaf" library into project
+	.Thymeleaf should be utilized with application when using spring boot
+	.When using spring mvc, we should utilize jsp with tiles framework
+/?may be you need remove file *ApplicationTests.java in "src/test/java/com.example.test" to void error with URL
+- Refresh Gradle project to update new library:
+	Right click at project -> Gradle -> Refresh Gradle project

@@ -1,0 +1,118 @@
+@General Spring
+
+---Dependency Injection----------------------------------------------------------------------------\
+Ý tưởng chính của Dependency Injection là bạn không phụ thuộc vào ai cả và người khác cũng không phụ 
+thuộc vào bạn. Khi cần mình sẽ gọi bạn và bạn cũng vậy.
+Reference: https://huongdanjava.com/vi/hieu-ve-dependency-injection.html
+
+---Inversion of Control và Dependency Injection-----------------------------------------------------\
+IOC: cung cấp những cách để các đối tượng bị phụ thuộc có thể truy cập và tương tác được các đối tượng phụ thuộc.
+-IoC phân chia làm hai loại:
+	.Dependency Lookup: tìm kiếm đối tượng phụ thuộc trong khung chứa IoC và sau đó các bạn có thể dùng
+		code để đưa đối tượng phụ thuộc vào trong đối tượng bị phụ thuộc
+	.Dependency Injection: đưa luôn đối tượng phụ thuộc vào đối tượng bị phụ thuộc.
+
+-Dependency Lookup: được chia làm 2 kiểu
+	.Dependency Pull: Lấy đối tượng phụ thuộc thông qua nơi đăng ký trung gian (JNDI)(thứ lấy đối tượng từ khung chứa
+	.Contextualized Dependency Lookup(CDL): Lấy đối tượng phụ thuộc trực tiếp từ khung chứa
+
+-Dependency Injection: hai cách phổ biến để đưa đối tượng phụ thuộc vào đối tượng bị phụ thuộc 
+	.Contructor Injection: Đưa đối tượng phụ thuộc vào hàm tạo của đối tượng bị phụ thuộc
+	.Setter Injection: Đưa đối tượng phụ thuộc vào hàm setter của đối tượng bị phụ thuộc
+	
+- Spring container: Nơi chứa các đối tượng
+- bean: Các đối tượng tạo thành xương sống của ứng dụng và được quản lý bởi Spring IoC container
+
+---Annotation-------------------------------------------------------------------------------------------\
+# Các mục đích của Annotation bao gồm:
+	1 Chỉ dẫn cho trình biên dịch (Compiler)
+	2 Chỉ dẫn trong thời điểm xây dựng (Build-time)
+	3 Chỉ dẫn trong thời điểm chạy (Run-time)
+	
+1. Chỉ dẫn cho trình biên dịch
+	. @Deprecated
+	. @Override
+	. @SuppressWarnings
+	
+2. Chỉ dẫn trong thời điểm Build-time
+- Build-time bao gồm: tạo ra mã nguồn, biên dịch mã nguồn, tạo ra các file XML, đóng gói mã biên dịch và
+tập tin vào một tập tin JAR...
+- Thường sử dụng công cụ Build như Apache Ant, Apache Maven, Gradle...
+- Xây dựng các công cụ có thể quét mã Java và dựa vào chú thích (Annotation) để tạo ra mã nguồn hoặc các
+tập tin khác dựa trên những Annotation đó
+
+3. Chỉ dẫn trong Run-time
+- Thông thường Annotation không có mặt trong mã Java sau khi biên dịch
+-  Tuy nhiên có thể xác định trong Run-time thông qua Java Reflection
+- Annotation được sử dụng khi này để cung cấp các hướng dẫn cho chương trình hoặc API bên thứ 3
+
+#Các Annotation có sẵn trong Java
+	. @Deprecated
+	. @Override
+	. @SuppressWarnings
+1. @Deprecated: 
+- chú thích cái gì đó bị lỗi thời, không nên sử dụng nữa ví dụ như class hoặc method
+- @Deprecated được compiler quan tâm để thông báo nên dùng một cách nào đó thay thế
+
+2. @Override
+- Chú thích cho việc phương thức ghi đè phương thức cha
+- Hỗ trợ detect trạng thái của phương thức có ghi đè hay không thông qua báo lỗi nếu không ghi đè
+
+3. @SuppressWarnings
+- Chỉ định compiler thôi không cảnh báo về một vấn đề của method nào đó
+ Ví dụ: @SuppressWarnings("deprecation") để tắt cảnh báo sử dụng cấu tử lỗi thời
+ 
+#Xây dựng Annotation
+- Dùng @interface để khai báo mới một Annotation
+- Đặc điểm các phần tử(element) của Annotation: 
+	.Không có thân hàm
+	.Không có them só hàm
+	.Khai báo trả về phải là một kiểu cụ thể
+	.Có thể có giá trị mặc định
+- Annotation có hoặc không có element trong nó
+
+1. @Retention & @Target
+- Là 2 Annotation có sẵn của Java
+
+- @Retention: Chú thích mức độ tồn tại của một Annotation nào đó
+	+Các mức nhận thức tồn tại của vật được chú thích
+		.RetentionPolicy.SOURCE: Tồn tại trên code nguồn, compiler không quan tâm
+		.RetentionPolicy.CLASS: Compiler có thể nhận biết, nhưng không được nhận biết bởi VM tại Run-time
+		.RetentionPolicyRUNTIME: compiler và VM đều nhận ra sự tồn tại.
+
+- @Target:Dùng đẻ chú thích cho phạm vi sử dụng của Annotation khác
+	. ElementType.TYPE: Gắn trên khai báo Class, interface, enum, annotation
+	. ElementType.FIELD: gắn trên khai báo trường, bao gồm enum
+	. ElementType.METHOD: Gắn trên khai báo method
+	. ElementType.PARAMETER: Gắn trên khai báo parameter
+	. ElementType.CONSTRUCTOR: Gắn trên khai báo cấu tử (hàm tạo)
+	. ElementType.LOCAL_VARIBLE: Gắn trên khai báo biến địa phương
+	. ElementType.ANNOTATION_TYPE: Gắn trên khai báo annotation
+	. ElementType.PACKAGE: Gắn trên khai báo package
+
+2. Annotation & Reflection
+
+----Bean autowiring trong Spring------------------------------------------------------------------------\
+
+
+
+---->> Forward vs Redirect-------------------------------------------------------------------------------\
+Forward: Server chuyển trực tiếp tới URL khác không thông báo lại cho client -> không thay đổi đường dẫn browser
+Redirect: Server gửi URL mới cho client để client request lại bằng URL mới này -> thay đổi đường dẫn browser
+
+
+
+--------SPRING SECURITY--------------------------------------------------------------------------------------------\
+
+
+
+
+
+
+
+
+
+
+
+
+	

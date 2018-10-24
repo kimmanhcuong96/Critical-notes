@@ -1,0 +1,122 @@
+----
+@author: Kim Manh Cuong
+----
+
+@Build example by myseft
+
+---Knowledge---------------------------------------------------------------------------/
+keyword: JPA, Web, PostgreSQL
+Postman: Stub generates event for Backend
+hibernate: tool for query database
+
+#Gradle là công cụ build
+
+#JPA vs Hibernate: JPA là tập các interfaces, qui chuẩn, định nghĩa.
+Còn Hibernate thực hiện cài đặt(implements) các interfaces và định nghĩa đó.
+	.Hibernate đơn giản hóa sự phát triển của ứng dụng java để tương tác với Database
+	. Là kỹ thuật lập trình ánh xạ đối tượng vào dữ liệu
+
+#REST: Là kiến trúc phần mềm bao gồm các constraint và convention. Hệ thống tuân thủ các constraint
+và convention này gọi là hệ thống kiến trúc REST
+	.REST API giúp 2 chương trình viết bằng 2 ngôn ngữ khác nhau có thể giao tiếp, truy cập dữ liệu của nhau
+
+#Postman: Là một công cụ để làm việc với RESTful API
+
+----Step guding------------------------------------------------------------------------------------------------/
+#Create project backborn
+	-browser to https://start.spring.io/
+	- Select suitable value:
+		.Gradle project
+		.Java
+		.Dependencies: JPA, Web, PostgreSQL
+		.Artifact: name of project
+
+#Import project
+	File->Import->Gradle(Existing Gradle project)->
+	-> <<link to project>> -> check tick in "Override workspace settings" box -> finish
+
+#Run spring boot:
+	run as -> Spring Boot App 
+/?may be you need insert: @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+	into src/main/jav/($name)Application.java to fix error.
+/?may be you need remove file *ApplicationTests.java in "src/test/java/com.example.test" to void error with URL
+/?After running first time, if you rerunning -> error due to Tomcat embeded in port 8080 -> can not re-embed
+	solution: let's Relaunch instead of Re-run
+	
+#Default main page
+	.Các file định dạng index.jsp hoặc index.html trong static mặc định sẽ được hiểu là home page
+	.Có thể trả về trang bất kỳ là là home page bằng cách xử lý trong MainController.java
+
+#Navigate to a page (including homepage)
+	- Configure *Application.java:
+		.Add: @SpringBootApplication(scanBasePackages= {"com.example.**"})
+	- Add thymeleaf for Gradle: compile('org.springframework.boot:spring-boot-starter-thymeleaf')->update gradle 
+	- maybe Remove file *ApplicationTests.java in "src/test/java/com.example.test" to void error with URL
+	- Write {$page}controller in package comtroller (example: com.example.controller)
+	- re-update project
+/? {$page}controller scan file in Template folder
+/? File in Static folder can be navigated directly (not base on {$page}controller) 
+
+
+---Spring boot with PostgreSQL-----------------------------------------------------------------------------------/
+---reference: http://javasampleapproach.com/spring-framework/use-spring-jpa-postgresql-spring-boot
+#Install drive for communication: là trung gian giữa JPA với PostgreSQL
+	.Download PostgreSQL JDBC Driver: https://jdbc.postgresql.org/download.html
+	.Place PostgreSQL JDBC Driver in anywhere (should be in project)
+	.Invoke project->(Project and External Dependencies)->Build path -> config build path -> Add external Jar-> choose postgresql JDBC->ok->apply
+	.Configure dependencies: 
+		compile("org.springframework.boot:spring-boot-starter-data-jpa") 
+		compile("org.postgresql:postgresql:42.2.4")
+	.update gradle
+#Configure application.properties
+	spring.datasource.url= jdbc:postgresql://localhost:5432/mydb
+	spring.datasource.username=postgres
+	spring.datasource.password=Phamgiang97
+	spring.jpa.hibernate.ddl-auto=update
+	spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+#Create DataModel class
+	.create package "com.example.model" in "src/main/java/"
+	.create class "Person" in package "com.example.model"
+#Create Spring JPA Repository Interface
+	.Create package "com.example.repo" in "src/main/java/"
+	.Create Java Interface "PersonRepository" in "com.example.repo"
+#Create Web controller
+	.create package "com.example.controller" in "src/main/java/"
+	.create class "WebController" in package "com.example.controller"
+#Create PostgreSQL table
+	#example: 
+		CREATE TABLE customer(
+			id BIGINT PRIMARY KEY     NOT NULL,
+			firstname VARCHAR(20),
+			lastname VARCHAR(20)
+		);
+#Configure {$project}Application
+	Insert:
+		.@EntityScan("com.example.model")
+		.@EnableJpaRepositories(basePackages="com.example.repo")
+#Run spring boot application
+	.invoke sts->windows->preferences->Java ->installed JREs->edit-> change JRE to JDK-> apply->ok
+
+/? maybe need insert: @EntityScan("com.example.model") into "{$project}Application.java" with path "src/main/java/"	
+/? maybe should remove: @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class}) 
+from src/main/jav/($name)Application.java
+/? maybe config pg_hba.conf in C:\Program Files\PostgreSQL\10\data to allow access localhost
+	host    all             all             127.0.0.1/32            trust
+
+/? 	compile('org.springframework.boot:spring-boot-devtools') in Gradle help auto update
+	
+	
+	
+---more detailed spring------------------------------------------------------------------------------------------/
+#Spring Bean: là những java Object -> tạo nên khung sườn của một Spring application
+	. Được lắp ráp và quản lý bởi Spring IoC container
+	. Được tạo ra bởi configuration metadata được cung cấp từ container 
+	
+#singleton?
+
+#Annotation: là các thẻ có định dạng @xxx. thông thường annotation sử dụng Reflection API để xử lý
+	.Annotation thường sẽ tác động đến một đối tượng cụ thể nào đó.
+
+
+
+

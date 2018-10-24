@@ -1,0 +1,21 @@
+##Kim Manh Cuong##
+--------------------------------------------
+tools:
+	visual studio code (editor)
+	npm (nodejs packet management)
+	reactjs deverloper tools (extension)
+	redux devtools (extension)
+	
+--------------------------------------------
+visual studio code:
+ install extension:
+	- eslint
+	- reactjs code snippet
+	
+---------------------------------------------
+build tool: npm
+	- updata lib: npm install
+	- start app: npm start
+	
+---------------------------------------------
+revoke terminal: ctrl + `/~
