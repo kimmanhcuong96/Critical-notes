@@ -1,7 +1,10 @@
 ##build jar file or war file
 ## GUI
 -> window->show view ->other ->Gradle tasks-> chon project-> boot jar/bootwar
-
+##add 
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'war'
 
 ####General:
 $ gradle tasks
