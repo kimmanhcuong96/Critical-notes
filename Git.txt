@@ -28,3 +28,6 @@ git push origin <branch name>
 	git status
 ####config proxy
  git config --global http.proxy http://cuongkm:Phamgiang97@proxy.tsdv.com.vn:3128
+ 
+######## rebase
+ git merge --no-ff 'origin/tsdv-dev' 'origin/tsdv-dev-50'
