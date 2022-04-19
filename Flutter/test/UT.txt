@@ -1,0 +1,20 @@
+Cài đặt tool và hướng dẫn test
+
+--- guide create UT: https://docs.flutter.dev/cookbook/testing/unit/introduction
+
+--- guide create html DOM output
+#RUN COVERAGE FOR GOLDEN TEST
+flutter test --machine --coverage test\golden_test\golden_test.dart#CONVERT TO OUTPUT DATA AS HTML FORMAT
+Pre-Requirements:
+Step 1: We will be using the MS Windows Chocolatey package manager to install the windows port of lcov.
+Refer: https://chocolatey.org/install
+Step 2: Install lcov using the command:
+choco install lcov
+Execute command to generate HTML code coverage report
+perl C:\ProgramData\chocolatey\lib\lcov\tools\bin\genhtml -o coverage\golden_test coverage\lcov.info
+Installing Chocolatey
+Chocolatey is software management automation for Windows that wraps installers, executables, zips, and scripts into compiled packages. Chocolatey integrates w/SCCM, Puppet, Chef, etc. Chocolatey is...
+
+Chạy instruction để gen:
+flutter test --machine --coverage (path to file nếu chỉ muốn create từng file)
+perl C:\ProgramData\chocolatey\lib\lcov\tools\bin\genhtml -o coverage\unit_test coverage\lcov.info (cần stand ở root project để tìm thấy lcov.info)
