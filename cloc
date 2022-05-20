@@ -1,0 +1,5 @@
+http://cloc.sourceforge.net/
+
+
+count except file have name: *.mock.dart
+cloc E:\2022A\stv_mobile\source\stavewaremobile1\test\program_test\bluetooth --not-match-f="(mock(.(dart))?)"
