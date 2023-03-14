@@ -30,4 +30,6 @@ git push origin <branch name>
  git config --global http.proxy http://cuongkm:Phamgiang97@proxy.tsdv.com.vn:3128
  
 ######## rebase
- git merge --no-ff 'origin/tsdv-dev' 'origin/tsdv-dev-50'
+ git merge --no-ff origin/path/to/branch/to/merge origin/path/to/branch/be/merged
+ if you stand on be merged:
+ git merge --no-ff origin/path/to/branch/to/merge
